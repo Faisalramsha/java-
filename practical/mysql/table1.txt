@@ -1,0 +1,39 @@
+mysql> select *from employeee;
++----+----------+--------+--------------------+
+| id | name     | mobile | Email              |
++----+----------+--------+--------------------+
+|  1 | Modassir | 709116 | modassir@gamil.com |
+|  2 | faisal   |  25541 | faisal@gamil.com   |
++----+----------+--------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into employeee value(3,'monika',91174106,'monika@gamil.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employeee;
++----+----------+----------+--------------------+
+| id | name     | mobile   | Email              |
++----+----------+----------+--------------------+
+|  1 | Modassir |   709116 | modassir@gamil.com |
+|  2 | faisal   |    25541 | faisal@gamil.com   |
+|  3 | monika   | 91174106 | monika@gamil.com   |
++----+----------+----------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employeee value(4,'kashish',2559841,'kashish@gamil.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employeee value(5,'wasim',255980941,'wasim@gamil.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employeee;
++----+----------+-----------+--------------------+
+| id | name     | mobile    | Email              |
++----+----------+-----------+--------------------+
+|  1 | Modassir |    709116 | modassir@gamil.com |
+|  2 | faisal   |     25541 | faisal@gamil.com   |
+|  3 | monika   |  91174106 | monika@gamil.com   |
+|  4 | kashish  |   2559841 | kashish@gamil.com  |
+|  5 | wasim    | 255980941 | wasim@gamil.com    |
++----+----------+-----------+--------------------+
+5 rows in set (0.00 sec)
