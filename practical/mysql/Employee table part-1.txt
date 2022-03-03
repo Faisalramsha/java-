@@ -1,0 +1,164 @@
+mysql> select *from employee;
++-------------+------------+-----------+--------+------------+--------------+
+| Employee_Id | First_name | Last_name | Salary | Department | Joining_date |
++-------------+------------+-----------+--------+------------+--------------+
+|           1 | Monika     | Arora     | 100000 | HR         | 2014-02-20   |
+|           2 | Niharika   | Verma     | 800000 | Admin      | 2014-06-11   |
+|           3 | Vishal     | Singhal   | 300000 | HR         | 2014-02-20   |
+|           4 | Amitabh    | Singh     | 500000 | Admin      | 2014-02-20   |
+|           5 | Vivek      | Bhati     | 500000 | Admin      | 2014-06-11   |
+|           6 | Vipul      | Diwan     | 200000 | Account    | 2014-06-11   |
++-------------+------------+-----------+--------+------------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> select *First_name from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'First_name from employee' at line 1
+mysql> select *First_name from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'First_name from employee' at line 1
+mysql> select First_name from employee;
++------------+
+| First_name |
++------------+
+| Monika     |
+| Niharika   |
+| Vishal     |
+| Amitabh    |
+| Vivek      |
+| Vipul      |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> select Department from employee;
++------------+
+| Department |
++------------+
+| HR         |
+| Admin      |
+| HR         |
+| Admin      |
+| Admin      |
+| Account    |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> select SUBSTRING(First_name,1,3)from employee;
++---------------------------+
+| SUBSTRING(First_name,1,3) |
++---------------------------+
+| Mon                       |
+| Nih                       |
+| Vis                       |
+| Ami                       |
+| Viv                       |
+| Vip                       |
++---------------------------+
+6 rows in set (0.00 sec)
+
+mysql> select INSTR(First_name,BINARY'a')from employee where First_name='Amitabh';
++-----------------------------+
+| INSTR(First_name,BINARY'a') |
++-----------------------------+
+|                           1 |
++-----------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select TRIM(First_name)from employee;
++------------------+
+| TRIM(First_name) |
++------------------+
+| Monika           |
+| Niharika         |
+| Vishal           |
+| Amitabh          |
+| Vivek            |
+| Vipul            |
++------------------+
+6 rows in set (0.00 sec)
+
+mysql> select TRIM(Department)from employee;
++------------------+
+| TRIM(Department) |
++------------------+
+| HR               |
+| Admin            |
+| HR               |
+| Admin            |
+| Admin            |
+| Account          |
++------------------+
+6 rows in set (0.00 sec)
+
+mysql> select distinct(length(department))from employee;
++----------------------+
+| (length(department)) |
++----------------------+
+|                    2 |
+|                    5 |
+|                    7 |
++----------------------+
+3 rows in set (0.00 sec)
+
+mysql> select REPLACE(First_name,'A','@') AS "REPLACING NAME" from employee;
++----------------+
+| REPLACING NAME |
++----------------+
+| Monika         |
+| Niharika       |
+| Vishal         |
+| @mitabh        |
+| Vivek          |
+| Vipul          |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> select REPLACE(First_name,'A','a') AS "REPLACING NAME" from employee;
++----------------+
+| REPLACING NAME |
++----------------+
+| Monika         |
+| Niharika       |
+| Vishal         |
+| amitabh        |
+| Vivek          |
+| Vipul          |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> select First_name from employee;
++------------+
+| First_name |
++------------+
+| Monika     |
+| Niharika   |
+| Vishal     |
+| Amitabh    |
+| Vivek      |
+| Vipul      |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> select First_name,Last_name from employee;
++------------+-----------+
+| First_name | Last_name |
++------------+-----------+
+| Monika     | Arora     |
+| Niharika   | Verma     |
+| Vishal     | Singhal   |
+| Amitabh    | Singh     |
+| Vivek      | Bhati     |
+| Vipul      | Diwan     |
++------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select *from employee ORDER BY First_name DESC;
++-------------+------------+-----------+--------+------------+--------------+
+| Employee_Id | First_name | Last_name | Salary | Department | Joining_date |
++-------------+------------+-----------+--------+------------+--------------+
+|           5 | Vivek      | Bhati     | 500000 | Admin      | 2014-06-11   |
+|           3 | Vishal     | Singhal   | 300000 | HR         | 2014-02-20   |
+|           6 | Vipul      | Diwan     | 200000 | Account    | 2014-06-11   |
+|           2 | Niharika   | Verma     | 800000 | Admin      | 2014-06-11   |
+|           1 | Monika     | Arora     | 100000 | HR         | 2014-02-20   |
+|           4 | Amitabh    | Singh     | 500000 | Admin      | 2014-02-20   |
++-------------+------------+-----------+--------+------------+--------------+
+6 rows in set (0.00 sec)
