@@ -1,0 +1,87 @@
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use faisal;
+Database changed
+mysql> desc customer;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| cust_id | varchar(5)  | NO   | PRI | NULL    |       |
+| Fname   | varchar(15) | NO   |     | NULL    |       |
+| Lname   | varchar(15) | NO   |     | NULL    |       |
+| Area    | varchar(2)  | NO   |     | NULL    |       |
+| Phone   | int         | NO   |     | NULL    |       |
+| DOB     | date        | NO   |     | NULL    |       |
+| Payment | int         | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select *from customer;
++---------+---------+----------+------+----------+------------+---------+
+| cust_id | Fname   | Lname    | Area | Phone    | DOB        | Payment |
++---------+---------+----------+------+----------+------------+---------+
+| 1       | Ivan    | Ross     | SA   |  6125467 | 1986-01-15 |     800 |
+| 2       | Vandana | Ray      | MU   |  5560379 | 1987-12-20 |    1001 |
+| 3       | Pramada | Jauguste | DA   |  4560389 | 1967-07-25 |     500 |
+| 4       | Vasu    | Navindi  | BA   |  6125401 | 1956-02-28 |     860 |
+| 5       | Ravi    | Shridhar | NA   | 65476564 | 1989-02-15 |     500 |
+| 6       | Rukmini | Aiyer    | GH   |  5125274 | 1987-07-23 |    1500 |
++---------+---------+----------+------+----------+------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show *table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*table' at line 1
+mysql> update customer SET Phone='67435432' where cust_id=02;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from customer;
++---------+---------+----------+------+----------+------------+---------+
+| cust_id | Fname   | Lname    | Area | Phone    | DOB        | Payment |
++---------+---------+----------+------+----------+------------+---------+
+| 1       | Ivan    | Ross     | SA   |  6125467 | 1986-01-15 |     800 |
+| 2       | Vandana | Ray      | MU   | 67435432 | 1987-12-20 |    1001 |
+| 3       | Pramada | Jauguste | DA   |  4560389 | 1967-07-25 |     500 |
+| 4       | Vasu    | Navindi  | BA   |  6125401 | 1956-02-28 |     860 |
+| 5       | Ravi    | Shridhar | NA   | 65476564 | 1989-02-15 |     500 |
+| 6       | Rukmini | Aiyer    | GH   |  5125274 | 1987-07-23 |    1500 |
++---------+---------+----------+------+----------+------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> update customer set Phone='7645876' where cust_id=03;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update customer set DOB='1987-05-05' where cust_id=03;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update customer set DOB='1981-09-09' where cust_id=05;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from customer;
++---------+---------+----------+------+----------+------------+---------+
+| cust_id | Fname   | Lname    | Area | Phone    | DOB        | Payment |
++---------+---------+----------+------+----------+------------+---------+
+| 1       | Ivan    | Ross     | SA   |  6125467 | 1986-01-15 |     800 |
+| 2       | Vandana | Ray      | MU   | 67435432 | 1987-12-20 |    1001 |
+| 3       | Pramada | Jauguste | DA   |  7645876 | 1987-05-05 |     500 |
+| 4       | Vasu    | Navindi  | BA   |  6125401 | 1956-02-28 |     860 |
+| 5       | Ravi    | Shridhar | NA   | 65476564 | 1981-09-09 |     500 |
+| 6       | Rukmini | Aiyer    | GH   |  5125274 | 1987-07-23 |    1500 |
++---------+---------+----------+------+----------+------------+---------+
+6 rows in set (0.00 sec)
